@@ -3,13 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fujiokadoichiro.com</title>
+    <title>藤岡戸一朗 Official Site - Coming Soon</title>
+    <meta name="description" content="藤岡戸一朗 オフィシャルサイト。2026年4月26日 正式オープン。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #1a1209;
+            --bg-card: #2a1f10;
+            --amber: #d4920a;
+            --amber-light: #f0b429;
+            --amber-glow: rgba(212, 146, 10, 0.3);
+            --cream: #f5e6c8;
+            --cream-dim: #b8a88a;
+            --brown: #3d2e1a;
+            --brown-light: #5a4430;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background-color: var(--bg-dark);
+            color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Retro texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at center, transparent 0%, var(--bg-dark) 70%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.03) 2px,
+                    rgba(0,0,0,0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Warm vignette glow */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                ellipse at 50% 40%,
+                rgba(212, 146, 10, 0.08) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 10;
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--brown-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            background: var(--brown);
+            color: var(--cream-dim);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            font-family: 'Special Elite', cursive;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .lang-btn:hover {
+            background: var(--brown-light);
+        }
+
+        .lang-btn.active {
+            background: var(--amber);
+            color: var(--bg-dark);
+        }
+
+        /* Artist name */
+        .artist-name {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--cream);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 40px var(--amber-glow);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .artist-name-en {
+            font-family: 'Special Elite', cursive;
+            font-size: 1rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out 0.2s both;
+        }
+
+        /* Coming soon label */
+        .coming-soon {
+            display: inline-block;
+            font-family: 'Special Elite', cursive;
+            font-size: 1.1rem;
+            color: var(--amber);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            border-top: 1px solid var(--brown-light);
+            border-bottom: 1px solid var(--brown-light);
+            padding: 0.6rem 0;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-value {
+            font-family: 'Special Elite', cursive;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--cream);
+            background: var(--bg-card);
+            border: 1px solid var(--brown-light);
+            border-radius: 6px;
+            padding: 0.5rem 0.8rem;
+            min-width: 80px;
+            text-align: center;
+            box-shadow:
+                inset 0 -2px 4px rgba(0,0,0,0.4),
+                inset 0 2px 4px rgba(255,255,255,0.03),
+                0 4px 12px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Flip card center line */
+        .countdown-value::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1px;
+            background: rgba(0,0,0,0.3);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .countdown-separator {
+            font-family: 'Special Elite', cursive;
+            font-size: 3rem;
+            color: var(--amber);
+            align-self: flex-start;
+            padding-top: 0.6rem;
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Release date */
+        .release-date {
+            font-size: 0.9rem;
+            color: var(--cream-dim);
+            letter-spacing: 0.1em;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .release-date span {
+            color: var(--amber-light);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 2;
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--brown-light);
+            letter-spacing: 0.1em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .artist-name {
+                font-size: 2rem;
+                letter-spacing: 0.1em;
+            }
+
+            .artist-name-en {
+                font-size: 0.8rem;
+            }
+
+            .countdown {
+                gap: 0.4rem;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
+                min-width: 55px;
+                padding: 0.4rem 0.5rem;
+            }
+
+            .countdown-separator {
+                font-size: 2rem;
+                padding-top: 0.4rem;
+            }
+
+            .countdown-label {
+                font-size: 0.6rem;
+            }
+
+            .coming-soon {
+                font-size: 0.9rem;
+                letter-spacing: 0.3em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>fujiokadoichiro.com</h1>
-    <p>This is a test page for GitHub Pages with a custom domain.</p>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ja" onclick="setLang('ja')">JA</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+
+    <div class="container">
+        <!-- Artist Name -->
+        <h1 class="artist-name" data-ja="藤岡戸一朗" data-en="Doichiro Fujioka">藤岡戸一朗</h1>
+        <p class="artist-name-en" data-ja="Doichiro Fujioka" data-en="Official Website">Doichiro Fujioka</p>
+
+        <!-- Coming Soon -->
+        <p class="coming-soon" data-ja="COMING SOON" data-en="COMING SOON">COMING SOON</p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-label" data-ja="日" data-en="DAYS">日</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-label" data-ja="時" data-en="HOURS">時</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-label" data-ja="分" data-en="MINUTES">分</div>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-label" data-ja="秒" data-en="SECONDS">秒</div>
+            </div>
+        </div>
+
+        <!-- Release Date -->
+        <p class="release-date" data-ja="正式オープン: <span>2026年4月26日</span>" data-en="Official Launch: <span>April 26, 2026</span>">正式オープン: <span>2026年4月26日</span></p>
+    </div>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 藤岡戸一朗</p>
     </footer>
+
+    <script>
+        // Target date: April 26, 2026 00:00:00 JST (UTC+9)
+        const TARGET_DATE = new Date('2026-04-26T00:00:00+09:00').getTime();
+
+        let currentLang = 'ja';
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = TARGET_DATE - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        function setLang(lang) {
+            currentLang = lang;
+
+            // Update toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-ja][data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+        }
+
+        // Start countdown
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
