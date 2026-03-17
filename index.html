@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Special+Elite&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -77,13 +80,11 @@
             height: 100%;
             background:
                 radial-gradient(ellipse at center, transparent 0%, var(--bg-dark) 70%),
-                repeating-linear-gradient(
-                    0deg,
+                repeating-linear-gradient(0deg,
                     transparent,
                     transparent 2px,
-                    rgba(0,0,0,0.03) 2px,
-                    rgba(0,0,0,0.03) 4px
-                );
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 4px);
             pointer-events: none;
             z-index: 1;
         }
@@ -96,11 +97,9 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(
-                ellipse at 50% 40%,
-                rgba(212, 146, 10, 0.08) 0%,
-                transparent 50%
-            );
+            background: radial-gradient(ellipse at 50% 40%,
+                    rgba(212, 146, 10, 0.08) 0%,
+                    transparent 50%);
             pointer-events: none;
             z-index: 1;
         }
@@ -114,10 +113,96 @@
             max-width: 700px;
         }
 
+        /* Live schedule ticker */
+        .ticker-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 36px;
+            background: rgba(26, 18, 9, 0.85);
+            border-bottom: 1px solid var(--brown-light);
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-label {
+            flex-shrink: 0;
+            background: var(--amber);
+            color: var(--bg-dark);
+            font-family: 'Special Elite', cursive;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0 0.7rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .ticker-track {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+
+        .ticker-content {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            animation: tickerScroll var(--ticker-duration, 60s) linear infinite;
+        }
+
+        .ticker-item {
+            font-family: 'Yuji Syuku', serif;
+            font-size: 0.85rem;
+            color: var(--cream);
+            padding: 0 2rem;
+            white-space: nowrap;
+        }
+
+        .ticker-item .venue {
+            color: var(--amber-light);
+        }
+
+        .ticker-item .band {
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        .ticker-item .with {
+            color: var(--cream-dim);
+            font-size: 0.75rem;
+        }
+
+        .ticker-sep {
+            color: var(--brown-light);
+            padding: 0 0.5rem;
+            font-size: 0.7rem;
+        }
+
+        @keyframes tickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* Language toggle */
         .lang-toggle {
             position: fixed;
-            top: 1.5rem;
+            top: 2.8rem;
             right: 1.5rem;
             z-index: 10;
             display: flex;
@@ -156,7 +241,7 @@
             color: var(--cream);
             letter-spacing: 0.2em;
             margin-bottom: 0.3rem;
-            text-shadow: 0 0 40px var(--amber-glow), 0 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 0 0 40px var(--amber-glow), 0 2px 8px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease-out;
         }
 
@@ -212,9 +297,9 @@
             min-width: 80px;
             text-align: center;
             box-shadow:
-                inset 0 -2px 4px rgba(0,0,0,0.4),
-                inset 0 2px 4px rgba(255,255,255,0.03),
-                0 4px 12px rgba(0,0,0,0.5);
+                inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.03),
+                0 4px 12px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -227,8 +312,8 @@
             right: 0;
             top: 50%;
             height: 1px;
-            background: rgba(0,0,0,0.3);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .countdown-label {
@@ -287,23 +372,49 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         /* Responsive */
@@ -343,7 +454,16 @@
         }
     </style>
 </head>
+
 <body>
+
+    <!-- Live Schedule Ticker -->
+    <div class="ticker-bar">
+        <div class="ticker-label" id="tickerLabel">LIVE</div>
+        <div class="ticker-track">
+            <div class="ticker-content" id="tickerContent"></div>
+        </div>
+    </div>
 
     <!-- Background Slideshow -->
     <div class="bg-slideshow" id="slideshow"></div>
@@ -386,13 +506,15 @@
         </div>
 
         <!-- Release Date -->
-        <p class="release-date" data-ja="正式オープン: <span>2026年4月26日</span>" data-en="Official Launch: <span>April 26, 2026</span>">正式オープン: <span>2026年4月26日</span></p>
+        <p class="release-date" data-ja="正式オープン: <span>2026年4月26日</span>"
+            data-en="Official Launch: <span>April 26, 2026</span>">正式オープン: <span>2026年4月26日</span></p>
     </div>
 
     <!-- Footer -->
     <footer>
         <p data-ja="&copy; 2026 藤岡戸一朗" data-en="&copy; 2026 Doichiro Fujioka">&copy; 2026 藤岡戸一朗</p>
-        <p class="credit" data-ja="とみはま 制作 / 作 ニラレバキック" data-en="Produced by tomihama / Created by niraleverkick">とみはま 制作 / 作 ニラレバキック</p>
+        <p class="credit" data-ja="とみはま 制作 / 作 ニラレバキック" data-en="Produced by tomihama / Created by niraleverkick">とみはま
+            制作 / 作 ニラレバキック</p>
     </footer>
 
     <!-- Base64 images loaded from separate file (not stored as image files in repo) -->
@@ -403,6 +525,63 @@
 
         let currentLang = 'ja';
         let currentSlide = 0;
+
+        // --- Live Schedule Data ---
+        // date: 'YYYY-MM-DD' for auto-expiry filtering
+        const SCHEDULE = [
+            { date: '2026-03-20', band: '【theBACKDROPS】', text: '3/20（金祝） 松本箱船', note: '（ドラマーは菅大智だよ！）' },
+            { date: '2026-03-28', band: '【ゴールデンシルバーズ】', text: '3/28（土） 幡ヶ谷 CLUB HEAVY SICK', with: 'w/ マンホール、(The) SEGARE KIDS' },
+            { date: '2026-04-12', band: '【電化アベジュリー】', text: '4/12（日） 荻窪 TOPBEATCLUB' },
+            { date: '2026-04-19', band: '【ゴールデンシルバーズ】', text: '4/19（日） 幡ヶ谷ヘビィシック', with: 'w/ 2人 DAViES（ワタナベマモル・ハラ タカシ）、太陽民芸' },
+            { date: '2026-04-26', band: '【藤岡戸一朗】', text: '4/26（日） 高円寺グリーンアップル', with: 'w/ カミオ＆ノリツグ、ムトウマサヒデ' },
+            { date: '2026-05-16', band: '【デキシード・ザ・エモンズ】', text: '5/16（土） 名古屋今池得三' },
+            { date: '2026-05-17', band: '【デキシード・ザ・エモンズ】', text: '5/17（日） 堺ファンダンゴ' },
+            { date: '2026-05-24', band: '【藤岡戸一朗】', text: '5/24（日） 下北沢ラプソディー', with: 'w/ アベジュリー、ハッチハッチェル' },
+            { date: '2026-06-27', band: '【リ・ゾートルズ】（ハッチハッチェル、ペロ魚谷、藤岡戸一朗）', text: '6/27（土） 伊東サンハトヤ', with: 'w/ アベジュリー、控えめなデキシード・ザ・エモンズ' },
+            { date: '2026-08-02', band: '【デキシード・ザ・エモンズ】', text: '8/2（日） 下北沢 SHELTER', with: 'w/ Gyogun Rend\'s' },
+        ];
+
+        // --- Ticker ---
+        function initTicker() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Filter out past events
+            const upcoming = SCHEDULE.filter(item => {
+                const eventDate = new Date(item.date + 'T23:59:59+09:00');
+                return eventDate >= today;
+            });
+
+            if (upcoming.length === 0) return;
+
+            const container = document.getElementById('tickerContent');
+
+            // Build items twice for seamless loop
+            function buildItems() {
+                let html = '';
+                upcoming.forEach((item, i) => {
+                    html += '<span class="ticker-item">';
+                    html += '<span class="band">' + item.band + '</span> ';
+                    html += '<span class="venue">' + item.text + '</span>';
+                    if (item.with) html += ' <span class="with">' + item.with + '</span>';
+                    if (item.note) html += ' <span class="with">' + item.note + '</span>';
+                    html += '</span>';
+                    if (i < upcoming.length - 1) html += '<span class="ticker-sep">◆</span>';
+                });
+                return html;
+            }
+
+            const itemsHtml = buildItems();
+            container.innerHTML = itemsHtml + '<span class="ticker-sep">◆</span>' + itemsHtml + '<span class="ticker-sep">◆</span>';
+
+            // Adjust speed based on content width
+            requestAnimationFrame(() => {
+                const contentWidth = container.scrollWidth / 2;
+                const speed = 60; // pixels per second
+                const duration = contentWidth / speed;
+                container.style.setProperty('--ticker-duration', duration + 's');
+            });
+        }
 
         // --- Countdown ---
         function updateCountdown() {
@@ -439,6 +618,9 @@
                 const text = el.getAttribute('data-' + lang);
                 if (text) el.innerHTML = text;
             });
+            // Update ticker label
+            const label = document.getElementById('tickerLabel');
+            if (label) label.textContent = lang === 'en' ? 'LIVE' : 'LIVE';
         }
 
         // --- Background Slideshow ---
@@ -468,6 +650,8 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
         initSlideshow();
+        initTicker();
     </script>
 </body>
+
 </html>
