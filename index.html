@@ -7,7 +7,7 @@
     <meta name="description" content="藤岡戸一朗 オフィシャルサイト。2026年4月26日 正式オープン。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Special+Elite&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -28,7 +28,7 @@
         }
 
         body {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'Yuji Syuku', serif;
             background-color: var(--bg-dark);
             color: var(--cream);
             min-height: 100vh;
@@ -38,6 +38,33 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+        }
+
+        /* Background slideshow */
+        .bg-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            filter: sepia(0.5) brightness(0.6) contrast(0.9);
+        }
+
+        .bg-slide.active {
+            opacity: 0.25;
         }
 
         /* Retro texture overlay */
@@ -123,12 +150,13 @@
 
         /* Artist name */
         .artist-name {
-            font-size: 3rem;
-            font-weight: 900;
+            font-family: 'Yuji Syuku', serif;
+            font-size: 3.2rem;
+            font-weight: 400;
             color: var(--cream);
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             margin-bottom: 0.3rem;
-            text-shadow: 0 0 40px var(--amber-glow);
+            text-shadow: 0 0 40px var(--amber-glow), 0 2px 8px rgba(0,0,0,0.5);
             animation: fadeInDown 1s ease-out;
         }
 
@@ -209,6 +237,7 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             margin-top: 0.5rem;
+            font-family: 'Special Elite', cursive;
         }
 
         .countdown-separator {
@@ -243,6 +272,7 @@
         }
 
         footer p {
+            font-family: 'Special Elite', cursive;
             font-size: 0.75rem;
             color: var(--brown-light);
             letter-spacing: 0.1em;
@@ -272,8 +302,8 @@
         /* Responsive */
         @media (max-width: 600px) {
             .artist-name {
-                font-size: 2rem;
-                letter-spacing: 0.1em;
+                font-size: 2.2rem;
+                letter-spacing: 0.12em;
             }
 
             .artist-name-en {
@@ -307,6 +337,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Background Slideshow -->
+    <div class="bg-slideshow" id="slideshow"></div>
 
     <!-- Language Toggle -->
     <div class="lang-toggle">
@@ -354,12 +387,16 @@
         <p>&copy; 2026 藤岡戸一朗</p>
     </footer>
 
+    <!-- Base64 images loaded from separate file (not stored as image files in repo) -->
+    <script src="images.js"></script>
     <script>
         // Target date: April 26, 2026 00:00:00 JST (UTC+9)
         const TARGET_DATE = new Date('2026-04-26T00:00:00+09:00').getTime();
 
         let currentLang = 'ja';
+        let currentSlide = 0;
 
+        // --- Countdown ---
         function updateCountdown() {
             const now = Date.now();
             const diff = TARGET_DATE - now;
@@ -383,29 +420,46 @@
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
+        // --- Language ---
         function setLang(lang) {
             currentLang = lang;
-
-            // Update toggle buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
-
-            // Update html lang attribute
             document.documentElement.lang = lang;
-
-            // Update all translatable elements
             document.querySelectorAll('[data-ja][data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + lang);
-                if (text) {
-                    el.innerHTML = text;
-                }
+                if (text) el.innerHTML = text;
             });
         }
 
-        // Start countdown
+        // --- Background Slideshow ---
+        function initSlideshow() {
+            if (typeof BG_IMAGES === 'undefined' || BG_IMAGES.length === 0) return;
+
+            const container = document.getElementById('slideshow');
+
+            BG_IMAGES.forEach((src, i) => {
+                const div = document.createElement('div');
+                div.className = 'bg-slide' + (i === 0 ? ' active' : '');
+                div.style.backgroundImage = 'url(' + src + ')';
+                container.appendChild(div);
+            });
+
+            if (BG_IMAGES.length > 1) {
+                setInterval(() => {
+                    const slides = document.querySelectorAll('.bg-slide');
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 8000);
+            }
+        }
+
+        // Start
         updateCountdown();
         setInterval(updateCountdown, 1000);
+        initSlideshow();
     </script>
 </body>
 </html>
