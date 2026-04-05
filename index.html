@@ -675,11 +675,15 @@
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-            let html = '';
-            schedule.forEach(item => {
+            // Filter out past events (same as ticker)
+            const upcoming = schedule.filter(item => {
                 const eventDate = new Date(item.date + 'T23:59:59+09:00');
-                const isPast = eventDate < today;
-                html += '<div class="schedule-popup-item' + (isPast ? ' popup-past' : '') + '">';
+                return eventDate >= today;
+            });
+
+            let html = '';
+            upcoming.forEach(item => {
+                html += '<div class="schedule-popup-item">';
                 html += '<div class="popup-band">' + item.band + '</div>';
                 html += '<div class="popup-venue">' + item.text + '</div>';
                 if (item.with) html += '<div class="popup-with">' + item.with + '</div>';
