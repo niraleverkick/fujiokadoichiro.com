@@ -5,9 +5,14 @@
   { "date": "2026-04-19", "band": "【ゴールデンシルバーズ】", "text": "4/19（日） 幡ヶ谷ヘビィシック", "with": "w/ 2人 DAViES（ワタナベマモル・ハラ タカシ）、太陽民芸", "url": "https://www.heavysick.co.jp/club/" },
   { "date": "2026-04-26", "band": "【藤岡戸一朗】", "text": "4/26（日） 高円寺グリーンアップル", "with": "w/ カミオ＆ノリツグ、ムトウマサヒデ", "note": "「スナックまちかど」 開場18:00 / 開演18:30 / ¥2,500(+1ドリンク)", "label": "KICK-OFF EVENT", "url": "http://greenapple.gr.jp/" },
   { "date": "2026-05-03", "band": "【デキシード・ザ・エモンズ】", "text": "5/3（日） 新宿レッドクロス", "with": "w/ キノコホテル", "url": "https://redcloth.sputniklab.com/" },
+  { "date": "2026-05-10", "band": "【小関一馬、近藤哲平、小林ムツミ、藤岡戸一朗】", "text": "5/10（日） 国立酒場 FUKUSUKE", "url": "https://x.com/sakabarfukusuke" },
   { "date": "2026-05-16", "band": "【デキシード・ザ・エモンズ】", "text": "5/16（土） 名古屋今池得三", "url": "https://www.tokuzo.com/" },
   { "date": "2026-05-17", "band": "【デキシード・ザ・エモンズ】", "text": "5/17（日） 堺ファンダンゴ", "url": "https://www.fandango-japan.com/" },
+  { "date": "2026-05-20", "band": "【ゴールデンシルバーズ】", "text": "5/20（水） 新宿 redcloth", "url": "https://redcloth.sputniklab.com/" },
   { "date": "2026-05-24", "band": "【藤岡戸一朗】", "text": "5/24（日） 下北沢ラプソディー", "with": "w/ アベジュリー、ハッチハッチェル", "url": "http://rhapsody.tokyo/" },
+  { "date": "2026-06-07", "band": "【デキシード・ザ・エモンズ】", "text": "6/7（日） 大阪服部緑地 レインボーヒル", "url": "https://rainbowhill.jp/" },
+  { "date": "2026-06-14", "band": "【デキシード・ザ・エモンズ】", "text": "6/14（日） 荻窪 TOPBEATCLUB", "url": "https://topbeatclub.com/" },
   { "date": "2026-06-27", "band": "【リ・ゾートルズ】（ハッチハッチェル、ペロ魚谷、藤岡戸一朗）", "text": "6/27（土） 伊東サンハトヤ", "with": "w/ アベジュリー、控えめなデキシード・ザ・エモンズ", "url": "https://www.sunhatoya.co.jp/home/" },
-  { "date": "2026-08-02", "band": "【デキシード・ザ・エモンズ】", "text": "8/2（日） 下北沢 SHELTER", "with": "w/ Gyogun Rend's", "url": "https://www.loft-prj.co.jp/schedule/shelter" }
+  { "date": "2026-08-02", "band": "【デキシード・ザ・エモンズ】", "text": "8/2（日） 下北沢 SHELTER", "with": "w/ Gyogun Rend's", "url": "https://www.loft-prj.co.jp/schedule/shelter" },
+  { "date": "2026-08-09", "band": "【電化アベジュリー＆アベジュリーカルテット】", "text": "8/9（日） 東高円寺 U.F.O.club", "url": "https://ufoclub.jp/schedule/" }
 ]
