@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>藤岡戸一朗 Official Site</title>
+<meta name="description" content="藤岡戸一朗 公式サイト — ついでに生きてる">
+<script>
+(function(){
+  var k=new URLSearchParams(location.search).get('key');
+  if(k)sessionStorage.setItem('fd26_key',k);
+  if(sessionStorage.getItem('fd26_key')!=='fujioka2026'){
+    document.documentElement.innerHTML='';
+    location.replace('/');
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W6623DS9');</script>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+
+<!-- SVG Filters -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="rf" x="-4%" y="-4%" width="108%" height="108%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.042" numOctaves="4" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rf2" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="pencil" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="14" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- Hamburger (outside NAV to avoid stacking context issues) -->
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#news">NEWS</a>
+      <a href="#biography">BIOGRAPHY</a>
+      <a href="#discography">DISCOGRAPHY</a>
+      <a href="#media">MEDIA</a>
+      <a href="#shop">SHOP</a>
+      <a href="#links">LINKS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-nav-link">HOME</a>
+  <a href="#news" class="mobile-nav-link">NEWS</a>
+  <a href="#biography" class="mobile-nav-link">BIOGRAPHY</a>
+  <a href="#discography" class="mobile-nav-link">DISCOGRAPHY</a>
+  <a href="#media" class="mobile-nav-link">MEDIA</a>
+  <a href="#shop" class="mobile-nav-link">SHOP</a>
+  <a href="#links" class="mobile-nav-link">LINKS</a>
+  <a href="#contact" class="mobile-nav-link">CONTACT</a>
+</div>
+
+<!-- ========== HOME ========== -->
+<section id="home">
+  <img class="face-img" src="img/face-smile.png" alt="" style="width:80px;top:2%;right:2%;transform:rotate(8deg);opacity:0.13">
+
+  <div class="home-inner">
+    <div style="margin-bottom:44px">
+      <h2 class="hero-title">ついでに<br>生きてる</h2>
+      <div class="hero-divider"></div>
+    </div>
+
+    <div class="artist-name-box">
+      <h1 class="artist-name">藤岡<br>戸一朗</h1>
+      <p class="artist-name-en">FUJIOKA DOICHIRO</p>
+    </div>
+
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
+      <span class="btn-primary" id="liveInfoBtn">LIVE INFO
+        <div class="live-info-popup" id="liveInfoPopup">
+          <h4>UPCOMING LIVE</h4>
+          <div id="liveInfoList"></div>
+        </div>
+      </span>
+      <a href="#discography" class="btn-secondary">DISCOGRAPHY</a>
+    </div>
+
+    <div class="sns-row">
+      <a href="https://x.com/ichirou_okado" target="_blank" rel="noopener" class="sns-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/ichirou.okado/" target="_blank" rel="noopener" class="sns-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/fujiokadoichirou/" target="_blank" rel="noopener" class="sns-icon" style="background:#1a3a0a;font-family:serif;font-size:16px;font-weight:bold;color:#8DBA66">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.threads.com/@fujiokadoichirou" target="_blank" rel="noopener" class="sns-icon" style="background:#1a3a0a">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.751-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.182.408-2.26 1.332-3.031.85-.71 2.009-1.122 3.348-1.193 1.065-.056 2.054.03 2.967.192-.09-.606-.318-1.078-.683-1.407-.49-.441-1.228-.664-2.192-.664h-.04c-.748.005-1.732.168-2.328.79l-1.42-1.489c.96-.916 2.28-1.405 3.74-1.42h.06c1.468 0 2.63.424 3.453 1.262.738.75 1.18 1.775 1.323 3.052.474.218.916.474 1.318.77 1.578 1.16 2.532 2.907 2.68 4.91.082 1.113-.082 3.378-1.973 5.248-1.89 1.87-4.257 2.764-7.24 2.735z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@doichiro_fujioka" target="_blank" rel="noopener" class="sns-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://fujiokadoichiro.bandcamp.com/" target="_blank" rel="noopener" class="sns-icon-amber" style="font-family:'Courier New',monospace;font-size:11px;font-weight:bold;color:#1a1a1a;text-decoration:none" title="Bandcamp">Bc</a>
+      <div class="sns-separator"></div>
+      <div class="sns-coming">準備<br>中</div>
+      <div class="sns-coming">準備<br>中</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWS ========== -->
+<section id="news">
+  <div class="section-inner">
+    <p class="section-label">NEWS</p>
+    <div class="news-card" id="newsCard">
+      <div id="newsDate">
+        <p class="news-month"></p>
+        <div class="news-day"></div>
+        <p class="news-dow"></p>
+      </div>
+      <div class="news-detail" id="newsDetail">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave divider -->
+<svg class="wave-divider" viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 18 C150 52 330 0 520 28 C690 52 855 2 1042 30 C1110 46 1165 12 1200 22 L1200 56 L0 56Z" fill="#8DBA66"/>
+</svg>
+
+<!-- ========== BIOGRAPHY ========== -->
+<section id="biography">
+  <img class="face-img" src="img/face-duo.png" alt="" style="width:90px;top:3%;right:2%;transform:rotate(6deg);opacity:0.13">
+  <div class="section-inner">
+    <div class="bio-grid">
+      <div>
+        <div class="bio-photo-frame">
+          <div class="bio-photo-inner">
+            <img src="img/artist.jpg" alt="藤岡戸一朗" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label">BIOGRAPHY</p>
+        <div class="bio-text">
+          <p>期待に胸をふくらませ<br>
+          裸一貫駆け出した<br>
+          あの頃ボクらは笑ってた<br>
+          あれ？未だにボクは笑ってる<br>
+          アンド近頃いい感じ！（アンドニコッ…！）</p>
+
+          <p>まぁカン違いではございましょうが<br>
+          とんちんかんではございましょうが<br>
+          ちゃんリンシャンではございませんが<br>
+          なにとぞお付き合いのほど宜しくお願いいたします。</p>
+
+          <p style="margin-top:18px;font-weight:800;font-size:17px;color:#2e5c10">藤岡戸一朗</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave divider -->
+<svg class="wave-divider" viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 28 C180 0 360 50 540 22 C720 -6 900 48 1080 24 C1150 12 1185 30 1200 20 L1200 56 L0 56Z" fill="#2e5c10"/>
+</svg>
+
+<!-- ========== DISCOGRAPHY ========== -->
+<section id="discography">
+  <img class="face-img-light" src="img/face-smile.png" alt="" style="width:80px;top:3%;right:2%;transform:rotate(-7deg);opacity:0.14">
+  <div class="section-inner">
+    <p class="section-label-light" style="color:#8DBA66;border-color:#8DBA66">DISCOGRAPHY</p>
+    <div class="disco-grid">
+      <svg width="200" height="200" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="display:block">
+        <defs><pattern id="gr" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 6L6 0" stroke="rgba(141,186,102,.45)" stroke-width="0.5" fill="none"/></pattern></defs>
+        <circle cx="110" cy="110" r="100" fill="#1a2e08" stroke="#8DBA66" stroke-width="2"/>
+        <circle cx="110" cy="110" r="100" fill="url(#gr)"/>
+        <circle cx="110" cy="110" r="62" fill="none" stroke="#1e4010" stroke-width="0.8"/>
+        <circle cx="110" cy="110" r="40" fill="none" stroke="#1e4010" stroke-width="0.8"/>
+        <circle cx="110" cy="110" r="32" fill="#2d5a1e"/>
+        <circle cx="110" cy="110" r="5" fill="#060e02"/>
+        <text x="110" y="105" text-anchor="middle" fill="#8DBA66" font-family="'Courier New',monospace" font-size="8">FUJIOKA</text>
+        <text x="110" y="118" text-anchor="middle" fill="#c8921a" font-family="'Courier New',monospace" font-size="7">DOICHIRO</text>
+      </svg>
+      <div>
+        <p class="disco-label">1st Single EP &#8212; 2026.10&#20104;&#23450;</p>
+        <h3 class="disco-title">&#12479;&#12452;&#12488;&#12523;&#35519;&#25972;&#20013;<br><span style="font-size:14px;color:#8DBA66">7&#12452;&#12531;&#12481; &#32025;&#12472;&#12515;&#12465;&#12483;&#12488;</span></h3>
+        <p class="disco-tracks">
+          A&#38754;&#65306;&#9675;&#9675;&#9675;&#9675;&#9675; (4:12)<br>
+          B&#38754;&#65306;&#9675;&#9675;&#9675;&#9675;&#9675; (3:58)
+        </p>
+        <a href="https://fujiokadoichiro.bandcamp.com/" target="_blank" rel="noopener" class="btn-amber" style="text-decoration:none">&#9654; Bandcamp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave divider -->
+<svg class="wave-divider" viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:#2e5c10">
+  <path d="M0 18 C150 52 330 0 520 28 C690 52 855 2 1042 30 C1110 46 1165 12 1200 22 L1200 56 L0 56Z" fill="#8DBA66"/>
+</svg>
+
+<!-- ========== MEDIA ========== -->
+<section id="media">
+  <div class="section-inner">
+    <p class="section-label">MEDIA</p>
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="media-embed-wrap">
+          <span class="media-badge" style="background:#c8921a;color:#1a1a1a">YouTube</span>
+          <iframe src="https://www.youtube.com/embed/mHqOYfk__yE" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="media-title">YouTube &#21205;&#30011;</p>
+      </div>
+      <div class="media-card">
+        <div class="media-embed-podcast">
+          <span class="media-badge" style="background:#8DBA66;color:#1a1a1a">PODCAST</span>
+          <iframe src="https://open.spotify.com/embed/show/4M9uCmUtB95vOCpgtduBd2?utm_source=generator&theme=0" title="Spotify Podcast" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:0"></iframe>
+        </div>
+        <p class="media-title">Podcast</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SHOP ========== -->
+<section id="shop">
+  <img class="face-img" src="img/face-duo.png" alt="" style="width:85px;top:3%;right:2%;transform:rotate(-5deg);opacity:0.12">
+  <div class="section-inner">
+    <p class="section-label">SHOP</p>
+    <div class="shop-grid">
+      <div class="shop-stickers">
+        <div class="shop-sticker" style="transform:rotate(-28deg) translateX(-62px) translateY(4px)"><img src="img/seal-a.jpg" alt="シールA" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="shop-sticker" style="transform:rotate(2deg) translateY(-10px)"><img src="img/seal-b.jpg" alt="シールB" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="shop-sticker" style="transform:rotate(32deg) translateX(62px) translateY(4px)"><img src="img/seal-c.jpg" alt="シールC" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+      <div class="shop-info">
+        <h3>&#12471;&#12540;&#12523;&#12475;&#12483;&#12488;&#65288;3&#26522;&#20837;&#12426;&#65289;</h3>
+        <p class="shop-price">&yen;1,100&#65288;&#31246;&#36796;&#65289;</p>
+        <p class="shop-note">&#36865;&#26009;&#21029;&#36884;</p>
+        <span class="btn-primary">&#36092;&#20837;&#12377;&#12427;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LINKS ========== -->
+<section id="links">
+  <div class="section-inner">
+    <div class="links-list">
+      <p class="section-label">LINKS</p>
+      <a href="https://www.youtube.com/@doichiro_fujioka" target="_blank" rel="noopener" class="link-row"><span>&#9654; YouTube</span><span>&rarr;</span></a>
+      <a href="https://x.com/ichirou_okado" target="_blank" rel="noopener" class="link-row"><span>&#9654; X (Twitter)</span><span>&rarr;</span></a>
+      <a href="https://www.facebook.com/ichirou.okado/" target="_blank" rel="noopener" class="link-row"><span>&#9654; Facebook</span><span>&rarr;</span></a>
+      <a href="https://www.instagram.com/fujiokadoichirou/" target="_blank" rel="noopener" class="link-row"><span>&#9654; Instagram</span><span>&rarr;</span></a>
+      <a href="https://www.threads.com/@fujiokadoichirou" target="_blank" rel="noopener" class="link-row"><span>&#9654; Threads</span><span>&rarr;</span></a>
+      <a href="https://open.spotify.com/show/4M9uCmUtB95vOCpgtduBd2?si=GiDnX1x0RN-pWoclh97cSw" target="_blank" rel="noopener" class="link-row"><span>&#9654; Podcast (Spotify)</span><span>&rarr;</span></a>
+      <a href="https://fujiokadoichiro.bandcamp.com/" target="_blank" rel="noopener" class="link-row"><span>&#9654; Bandcamp</span><span>&rarr;</span></a>
+      <a href="https://youtu.be/mHqOYfk__yE?si=q0Y55pF4f66RlcFt" target="_blank" rel="noopener" class="link-row"><span>&#9654; デキシード・ザ・エモンズ</span><span>&rarr;</span></a>
+      <a href="https://www.instagram.com/thebackdrops_jp/" target="_blank" rel="noopener" class="link-row"><span>&#9654; The Backdrops</span><span>&rarr;</span></a>
+      <a href="https://kin-gin.com/" target="_blank" rel="noopener" class="link-row"><span>&#9654; ゴールデンシルバーズ</span><span>&rarr;</span></a>
+      <div class="link-coming"><span>Apple Music &#9472;&#9472; &#28310;&#20633;&#20013;</span><span class="link-coming-label">COMING SOON</span></div>
+      <div class="link-coming"><span>Spotify &#9472;&#9472; &#28310;&#20633;&#20013;</span><span class="link-coming-label">COMING SOON</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+  <img class="face-img-light" src="img/face-duo.png" alt="" style="width:85px;top:3%;left:2%;transform:rotate(-6deg);opacity:0.13">
+  <div style="position:relative;z-index:2;text-align:center;margin-bottom:48px">
+    <p class="section-label-light">CONTACT</p>
+  </div>
+
+  <div style="display:flex;justify-content:center;position:relative;z-index:2">
+    <div class="contact-card" onclick="window.open('https://forms.gle/P7nMj2X5Rctn12rz5','_blank')">
+      <div class="contact-shadow"></div>
+      <div class="contact-inner">
+        <svg width="380" height="548" viewBox="0 0 380 548" xmlns="http://www.w3.org/2000/svg" style="display:block;width:190px;height:274px">
+          <defs>
+            <pattern id="p" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="0.9" fill="#b89878" opacity="0.22"/></pattern>
+            <filter id="w" x="-2%" y="-2%" width="104%" height="104%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="5"/>
+              <feDisplacementMap in="SourceGraphic" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <rect width="380" height="548" fill="#f0e8d4"/>
+          <rect width="380" height="548" fill="url(#p)"/>
+          <text x="200" y="44" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#9b3030" letter-spacing="12" filter="url(#w)">&#37109;&#20415;&#12399;&#12364;&#12365;</text>
+          <circle cx="72" cy="82" r="50" fill="#9b3030" filter="url(#w)"/>
+          <circle cx="72" cy="82" r="44" fill="none" stroke="#f0e8d4" stroke-width="1.2"/>
+          <text x="72" y="78" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#f0e8d4">&#12362;&#21839;</text>
+          <text x="72" y="96" text-anchor="middle" font-family="serif" font-size="12" font-weight="bold" fill="#f0e8d4">&#21512;&#12431;&#12379;</text>
+          <g transform="translate(172,52)">
+            <line x1="0" y1="0" x2="182" y2="0" stroke="#b89878" stroke-width="0.6" opacity="0.5"/>
+            <line x1="0" y1="23" x2="182" y2="23" stroke="#b89878" stroke-width="0.6" opacity="0.5"/>
+            <line x1="0" y1="46" x2="182" y2="46" stroke="#b89878" stroke-width="0.6" opacity="0.5"/>
+            <line x1="0" y1="69" x2="182" y2="69" stroke="#b89878" stroke-width="0.6" opacity="0.5"/>
+            <text x="91" y="16" text-anchor="middle" font-family="serif" font-size="11" fill="#9b3030" opacity="0.5" letter-spacing="3">&#12362;&#21517;&#21069;</text>
+            <text x="91" y="39" text-anchor="middle" font-family="serif" font-size="11" fill="#9b3030" opacity="0.5" letter-spacing="2">&#12513;&#12540;&#12523;&#12450;&#12489;&#12524;&#12473;</text>
+            <text x="91" y="62" text-anchor="middle" font-family="serif" font-size="11" fill="#9b3030" opacity="0.5">&#20214;&#21517;&#12539;&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#20869;&#23481;</text>
+          </g>
+          <rect x="28" y="200" width="324" height="240" fill="none" stroke="#c8a888" stroke-width="0.8" opacity="0.5"/>
+          <text x="190" y="280" text-anchor="middle" font-family="serif" font-size="12" fill="#9b3030" opacity="0.38" letter-spacing="5">&#12362; &#20415; &#12426; &#27396;</text>
+          <text x="190" y="304" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#2d5a1e" opacity="0.65">Google Form &#12408;</text>
+          <line x1="28" y1="458" x2="352" y2="458" stroke="#9b3030" stroke-width="0.8" opacity="0.42"/>
+          <text x="190" y="476" text-anchor="middle" font-family="serif" font-size="9.5" fill="#9b3030" opacity="0.65" letter-spacing="1">5&#21942;&#26989;&#26085;&#20197;&#20869;&#12395;&#25240;&#12426;&#36820;&#12375;&#12372;&#36899;&#32097;&#12356;&#12383;&#12375;&#12414;&#12377;</text>
+          <g transform="translate(265,490)" filter="url(#w)">
+            <text x="0" y="11" font-family="'Courier New',monospace" font-size="9" fill="#9b3030" letter-spacing="1">&#12367;&#12376;&#30058;&#21495;</text>
+            <rect x="0" y="14" width="86" height="21" rx="3" fill="none" stroke="#9b3030" stroke-width="1.2"/>
+            <text x="43" y="29" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#9b3030" letter-spacing="3">1017</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <p class="contact-hint">&#12399;&#12364;&#12365;&#12434;&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#12367;&#12384;&#12373;&#12356;</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-copy">&copy; 2026 FUJIOKA DOICHIRO</p>
+  <p class="footer-credit">&#12392;&#12415;&#12399;&#12414; &#21046;&#20316; / &#20316; &#12491;&#12521;&#12524;&#12496;&#12461;&#12483;&#12463;</p>
+</footer>
+
+<script src="js/schedule.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
+</body>
+</html>
