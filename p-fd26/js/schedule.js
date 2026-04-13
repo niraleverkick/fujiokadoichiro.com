@@ -112,8 +112,7 @@
   }
 
   // LIVE INFO popup behavior
-  // PC: hover to open, click anywhere to close
-  // Mobile: tap to toggle
+  // PC/Mobile: click/tap to toggle, click outside to close
   function initLiveInfoPopup() {
     var btn = document.getElementById('liveInfoBtn');
     var popup = document.getElementById('liveInfoPopup');
@@ -121,28 +120,6 @@
 
     var isOpen = false;
 
-    // Hover to open (PC)
-    btn.addEventListener('mouseenter', function() {
-      popup.classList.add('active');
-      isOpen = true;
-    });
-
-    btn.addEventListener('mouseleave', function() {
-      // Delay close to allow moving mouse to popup
-      setTimeout(function() {
-        if (!popup.matches(':hover') && !btn.matches(':hover')) {
-          popup.classList.remove('active');
-          isOpen = false;
-        }
-      }, 200);
-    });
-
-    popup.addEventListener('mouseleave', function() {
-      popup.classList.remove('active');
-      isOpen = false;
-    });
-
-    // Click/tap to toggle (works on both PC and mobile)
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -155,7 +132,6 @@
       }
     });
 
-    // Click outside to close
     document.addEventListener('click', function(e) {
       if (!btn.contains(e.target) && !popup.contains(e.target)) {
         popup.classList.remove('active');
