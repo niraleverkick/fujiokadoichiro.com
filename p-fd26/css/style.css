@@ -72,7 +72,7 @@ img{max-width:100%;height:auto}
 .sns-coming{width:40px;height:40px;border:2px dashed var(--dark-green);display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:8px;color:var(--dark-green);text-align:center;line-height:1.2;cursor:default}
 
 /* LIVE INFO popup */
-.live-info-popup{display:none;position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:8px;background:var(--dark-green);border:2px solid var(--amber-gold);padding:20px 24px;min-width:340px;max-width:90vw;max-height:70vh;overflow-y:auto;z-index:100;box-shadow:4px 4px 16px rgba(0,0,0,.3)}
+.live-info-popup{display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--dark-green);border:2px solid var(--amber-gold);padding:24px 28px;min-width:340px;max-width:90vw;max-height:80vh;overflow-y:auto;z-index:300;box-shadow:4px 4px 24px rgba(0,0,0,.5);border-radius:4px}
 .live-info-popup.active{display:block}
 .live-info-popup h4{font-family:'Courier New',monospace;font-size:10px;letter-spacing:4px;color:var(--amber-gold);margin-bottom:14px}
 .live-info-item{padding:8px 0;border-bottom:1px solid rgba(200,232,160,.15);font-size:13px;color:var(--light-green);line-height:1.6}
