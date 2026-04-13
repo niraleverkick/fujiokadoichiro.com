@@ -72,7 +72,7 @@ img{max-width:100%;height:auto}
 .sns-coming{width:40px;height:40px;border:2px dashed var(--dark-green);display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:8px;color:var(--dark-green);text-align:center;line-height:1.2;cursor:default}
 
 /* LIVE INFO popup */
-.live-info-popup{display:none;position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:8px;background:var(--dark-green);border:2px solid var(--amber-gold);padding:20px 24px;min-width:340px;max-width:90vw;z-index:100;box-shadow:4px 4px 16px rgba(0,0,0,.3)}
+.live-info-popup{display:none;position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:8px;background:var(--dark-green);border:2px solid var(--amber-gold);padding:20px 24px;min-width:340px;max-width:90vw;max-height:70vh;overflow-y:auto;z-index:100;box-shadow:4px 4px 16px rgba(0,0,0,.3)}
 .live-info-popup.active{display:block}
 .live-info-popup h4{font-family:'Courier New',monospace;font-size:10px;letter-spacing:4px;color:var(--amber-gold);margin-bottom:14px}
 .live-info-item{padding:8px 0;border-bottom:1px solid rgba(200,232,160,.15);font-size:13px;color:var(--light-green);line-height:1.6}
@@ -117,7 +117,7 @@ img{max-width:100%;height:auto}
 .media-embed-wrap{position:relative;width:100%;padding-top:56.25%;background:var(--card-bg);border:3px solid var(--dark-green);overflow:hidden}
 .media-embed-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 /* Podcast: fixed width, variable height (no padding trick) */
-.media-embed-podcast{position:relative;width:100%;height:232px;background:transparent;border:none;overflow:hidden;border-radius:12px}
+.media-embed-podcast{position:relative;width:100%;height:352px;background:transparent;border:none;overflow:visible;border-radius:12px}
 .media-embed-podcast iframe{width:100%;height:100%;border:none}
 .media-badge{position:absolute;top:8px;left:8px;font-family:'Kaisei Tokumin',serif;font-size:10px;padding:2px 9px;font-weight:800;z-index:2}
 .media-title{margin-top:12px;font-size:14px;font-weight:800;font-family:'Kaisei Tokumin',serif;color:var(--text-dark)}
@@ -155,6 +155,7 @@ img{max-width:100%;height:auto}
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  .nav{display:none}
   .nav-links{display:none}
   .hamburger{display:block}
 
