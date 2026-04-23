@@ -179,6 +179,9 @@ img{max-width:100%;height:auto}
   .shop-sticker{width:110px;height:110px}
 
   .live-info-popup{min-width:280px;left:0;transform:none}
+
+  /* Top-right faces: push below hamburger (fixed top:10px right:20px ~38px) */
+  .face-tr{top:64px !important;right:8px !important}
 }
 
 @media (max-width: 480px) {
@@ -186,4 +189,7 @@ img{max-width:100%;height:auto}
   .artist-name{font-size:clamp(36px,10vw,48px)}
   .news-day{font-size:56px}
   .section-inner{padding:0 20px}
+
+  /* さらに狭い画面ではサイズも縮小 */
+  .face-tr{top:60px !important;right:6px !important;width:56px !important}
 }
