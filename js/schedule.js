@@ -120,22 +120,27 @@
 
     var isOpen = false;
 
+    function openPopup() {
+      popup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      isOpen = true;
+    }
+
+    function closePopup() {
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+      isOpen = false;
+    }
+
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      if (isOpen) {
-        popup.classList.remove('active');
-        isOpen = false;
-      } else {
-        popup.classList.add('active');
-        isOpen = true;
-      }
+      isOpen ? closePopup() : openPopup();
     });
 
     document.addEventListener('click', function(e) {
-      if (!btn.contains(e.target) && !popup.contains(e.target)) {
-        popup.classList.remove('active');
-        isOpen = false;
+      if (isOpen && !btn.contains(e.target) && !popup.contains(e.target)) {
+        closePopup();
       }
     });
   }
