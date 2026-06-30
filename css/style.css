@@ -78,6 +78,9 @@ img{max-width:100%;height:auto}
 .live-info-item{padding:8px 0;border-bottom:1px solid rgba(200,232,160,.15);font-size:13px;color:var(--light-green);line-height:1.6}
 .live-info-item:last-child{border-bottom:none}
 .live-info-date{font-family:'Courier New',monospace;font-size:10px;color:var(--amber-gold);margin-right:8px}
+.live-info-band{font-weight:bold;color:var(--amber-gold);font-size:13px}
+.live-info-text{color:var(--light-green);font-size:13px}
+.live-info-detail{color:rgba(200,232,160,.7);font-size:11px}
 
 /* ===== NEWS ===== */
 #news{background:var(--brand-green);padding:80px 0;position:relative;overflow:hidden}

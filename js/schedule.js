@@ -90,10 +90,15 @@
     var html = '';
     upcoming.forEach(function(ev) {
       html += '<div class="live-info-item">';
-      html += '<span class="live-info-date">' + escapeHTML(ev.date) + '</span>';
-      html += escapeHTML(ev.text);
       if (ev.band) {
-        html += ' ' + escapeHTML(ev.band);
+        html += '<div class="live-info-band">' + escapeHTML(ev.band) + '</div>';
+      }
+      html += '<div class="live-info-text">' + escapeHTML(ev.text) + '</div>';
+      if (ev.with) {
+        html += '<div class="live-info-detail">' + escapeHTML(ev.with) + '</div>';
+      }
+      if (ev.note) {
+        html += '<div class="live-info-detail">' + escapeHTML(ev.note) + '</div>';
       }
       html += '</div>';
     });
