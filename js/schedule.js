@@ -100,6 +100,7 @@
       if (ev.note) {
         html += '<div class="live-info-detail">' + escapeHTML(ev.note) + '</div>';
       }
+      html += reserveLinksHTML(ev);
       html += '</div>';
     });
     list.innerHTML = html;
@@ -114,6 +115,53 @@
 
   function escapeAttr(str) {
     return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // Reservation links: reserve_url takes a string or an array of strings.
+  // Labels come from the URL scheme (mailto: -> 予約メール, http(s) -> 予約) and are
+  // numbered only when the same label occurs more than once (予約1 / 予約2).
+  // Empty or malformed entries are dropped silently — schedule.json is hand-edited.
+  function reserveLinksHTML(ev) {
+    var raw = ev.reserve_url;
+    var urls = Array.isArray(raw) ? raw : [raw];
+    var labels = Array.isArray(ev.reserve_label) ? ev.reserve_label
+               : (ev.reserve_label ? [ev.reserve_label] : []);
+
+    var items = [];
+    urls.forEach(function(u, i) {
+      var url = (typeof u === 'string' ? u : '').trim();
+      var isMail = /^mailto:[^\s@]+@[^\s@]+/i.test(url);
+      if (!isMail && !/^https?:\/\/\S/i.test(url)) return;
+      items.push({
+        url: url,
+        isMail: isMail,
+        label: (labels[i] || '').trim(),
+        base: isMail ? '予約メール' : '予約'
+      });
+    });
+    if (!items.length) return '';
+
+    var total = {};
+    items.forEach(function(it) {
+      if (!it.label) total[it.base] = (total[it.base] || 0) + 1;
+    });
+
+    var seen = {};
+    var links = items.map(function(it) {
+      var label = it.label;
+      if (!label) {
+        label = it.base;
+        if (total[it.base] > 1) {
+          seen[it.base] = (seen[it.base] || 0) + 1;
+          label += seen[it.base];
+        }
+      }
+      var attrs = it.isMail ? '' : ' target="_blank" rel="noopener"';
+      return '<a class="live-info-reserve" href="' + escapeAttr(it.url) + '"' + attrs + '>' +
+             escapeHTML(label) + '</a>';
+    }).join('');
+
+    return '<div class="live-info-links">' + links + '</div>';
   }
 
   // LIVE INFO popup behavior

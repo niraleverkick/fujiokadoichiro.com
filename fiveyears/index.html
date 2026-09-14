@@ -678,7 +678,7 @@
         // --- Load Schedule from JSON ---
         async function loadSchedule() {
             try {
-                const res = await fetch('/schedule.json?v=2', { cache: 'no-store' });
+                const res = await fetch('/schedule.json?v=3', { cache: 'no-store' });
                 allSchedule = await res.json();
             } catch (e) {
                 console.warn('Failed to load schedule.json, using empty schedule', e);
