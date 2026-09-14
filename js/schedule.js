@@ -70,8 +70,15 @@
     }
     detailHTML += '</p>';
 
+    var actions = '';
     if (ev.url) {
-      detailHTML += '<div style="margin-top:20px"><a href="' + escapeAttr(ev.url) + '" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none">詳細</a></div>';
+      actions += '<a href="' + escapeAttr(ev.url) + '" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none">詳細</a>';
+    }
+    reserveLinks(ev).forEach(function(it) {
+      actions += reserveAnchor(it, 'btn-amber news-reserve');
+    });
+    if (actions) {
+      detailHTML += '<div class="news-actions">' + actions + '</div>';
     }
 
     document.getElementById('newsDate').innerHTML = dateHTML;
@@ -121,7 +128,8 @@
   // Labels come from the URL scheme (mailto: -> 予約メール, http(s) -> 予約) and are
   // numbered only when the same label occurs more than once (予約1 / 予約2).
   // Empty or malformed entries are dropped silently — schedule.json is hand-edited.
-  function reserveLinksHTML(ev) {
+  // Returns [{ url, isMail, label }] with labels resolved.
+  function reserveLinks(ev) {
     var raw = ev.reserve_url;
     var urls = Array.isArray(raw) ? raw : [raw];
     var labels = Array.isArray(ev.reserve_label) ? ev.reserve_label
@@ -139,15 +147,13 @@
         base: isMail ? '予約メール' : '予約'
       });
     });
-    if (!items.length) return '';
-
     var total = {};
     items.forEach(function(it) {
       if (!it.label) total[it.base] = (total[it.base] || 0) + 1;
     });
 
     var seen = {};
-    var links = items.map(function(it) {
+    return items.map(function(it) {
       var label = it.label;
       if (!label) {
         label = it.base;
@@ -156,12 +162,23 @@
           label += seen[it.base];
         }
       }
-      var attrs = it.isMail ? '' : ' target="_blank" rel="noopener"';
-      return '<a class="live-info-reserve" href="' + escapeAttr(it.url) + '"' + attrs + '>' +
-             escapeHTML(label) + '</a>';
-    }).join('');
+      return { url: it.url, isMail: it.isMail, label: label };
+    });
+  }
 
-    return '<div class="live-info-links">' + links + '</div>';
+  // mailto: gets no target="_blank" — it would leave an empty tab behind the mail client.
+  function reserveAnchor(it, className) {
+    var attrs = it.isMail ? '' : ' target="_blank" rel="noopener"';
+    return '<a class="' + className + '" href="' + escapeAttr(it.url) + '"' + attrs + '>' +
+           escapeHTML(it.label) + '</a>';
+  }
+
+  function reserveLinksHTML(ev) {
+    var links = reserveLinks(ev);
+    if (!links.length) return '';
+    return '<div class="live-info-links">' +
+           links.map(function(it) { return reserveAnchor(it, 'live-info-reserve'); }).join('') +
+           '</div>';
   }
 
   // LIVE INFO popup behavior

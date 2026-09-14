@@ -95,6 +95,8 @@ img{max-width:100%;height:auto}
 .news-badge{display:inline-block;background:var(--amber-gold);color:#fff;font-family:'Kaisei Tokumin',serif;font-size:11px;padding:4px 12px;letter-spacing:2px;margin-bottom:12px;font-weight:800}
 .news-title{font-size:22px;font-weight:800;line-height:1.4;margin-bottom:14px;font-family:'Kaisei Tokumin',serif;filter:url(#rf2)}
 .news-info{font-family:'Courier New',monospace;font-size:12px;line-height:2.3;color:var(--text-body)}
+.news-actions{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.news-reserve{text-decoration:none}
 
 /* ===== Wave divider ===== */
 .wave-divider{display:block;background:var(--brand-green);width:100%}
@@ -195,6 +197,7 @@ img{max-width:100%;height:auto}
   .artist-name{font-size:clamp(22px,6.5vw,36px)}
   .artist-name-box{padding:18px 22px}
   .news-day{font-size:56px}
+  .news-actions .btn-primary,.news-actions .btn-amber{padding-left:22px;padding-right:22px}
   .section-inner{padding:0 20px}
 
   /* さらに狭い画面ではサイズも縮小 */
