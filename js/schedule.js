@@ -125,8 +125,8 @@
   }
 
   // Reservation links: reserve_url takes a string or an array of strings.
-  // Labels come from the URL scheme (mailto: -> 予約メール, http(s) -> 予約) and are
-  // numbered only when the same label occurs more than once (予約1 / 予約2).
+  // Labels come from the URL scheme (mailto: -> 予約メール, http(s) -> チケット) and are
+  // numbered only when the same label occurs more than once (チケット1 / チケット2).
   // Empty or malformed entries are dropped silently — schedule.json is hand-edited.
   // Returns [{ url, isMail, label }] with labels resolved.
   function reserveLinks(ev) {
@@ -144,7 +144,7 @@
         url: url,
         isMail: isMail,
         label: (labels[i] || '').trim(),
-        base: isMail ? '予約メール' : '予約'
+        base: isMail ? '予約メール' : 'チケット'
       });
     });
     var total = {};
